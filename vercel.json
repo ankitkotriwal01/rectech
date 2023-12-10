@@ -1,19 +1,17 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "your_app_directory",
-      "use": "@now/python"
+  "functions": {
+    "api": {
+      "runtime": "python3.8",
+      "includeFiles": ["**"],
+      "excludeFiles": ["__pycache__/**"],
+      "environment": {
+        "FLASK_ENV": "production",
+        "FLASK_APP": "your_app_filename.py"
+      }
     }
-  ],
+  },
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "your_app_directory/your_app_filename.py"
-    }
-  ],
-  "env": {
-    "FLASK_ENV": "production",
-    "FLASK_APP": "your_app_directory/your_app_filename.py"
-  }
+    { "src": "/(.*)", "dest": "api" }
+  ]
 }
