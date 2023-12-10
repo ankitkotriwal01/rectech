@@ -1,13 +1,10 @@
 {
   "functions": {
     "api/**/*.py": {
-      "runtime": "python3.8"
+      "runtime": "python3.12"
     }
   },
   "routes": [
-    {
-      "handle": "filesystem"
-    },
     {
       "src": "/(.+\\.html)",
       "dest": "/$1"
